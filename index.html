@@ -7,150 +7,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
-<style>
-:root{
-  --board:#0e3b2c; --board2:#124a38; --ink:#eef3e8; --muted:#9db8a8;
-  --copper:#e0934a; --gold:#f1c76b; --line:rgba(238,243,232,.18);
-  --display:'Bricolage Grotesque','Segoe UI',system-ui,sans-serif;
-  --body:'Figtree','Segoe UI',system-ui,sans-serif;
-  color-scheme:dark;
-  box-sizing:border-box; padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
-}
-@media (prefers-color-scheme:light){
-  :root:not([data-theme="dark"]){--board:#e9efe6;--board2:#dbe6d8;--ink:#0f2a20;--muted:#47645a;--copper:#b4601a;--gold:#8a6410;--line:rgba(15,42,32,.25);color-scheme:light}
-}
-:root[data-theme="dark"]{color-scheme:dark}
-*{box-sizing:border-box}
-html{scroll-behavior:smooth;scroll-padding-top:env(safe-area-inset-top,0px)}
-body{margin:0;background:var(--board);color:var(--ink);font:400 1.0625rem/1.6 var(--body)}
-a{color:inherit}
-:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
-.wrap{max-width:1180px;margin:0 auto;padding:0 clamp(20px,4vw,40px)}
-header.top{display:flex;justify-content:space-between;align-items:center;padding:22px 0;position:relative;z-index:2}
-.logo{font:800 1.25rem var(--display);text-decoration:none}
-nav a{margin-left:22px;text-decoration:none;color:var(--muted);font-weight:500}
-nav a:hover{color:var(--ink)}
-/* hero */
-.hero{position:relative;overflow:hidden;min-height:calc(100vh - 70px);min-height:calc(100svh - 70px);display:flex;align-items:center;padding:40px 0 70px}
-.hero h1{font:800 clamp(2.2rem,5.6vw,4.4rem)/1.04 var(--display);letter-spacing:-.03em;margin:0 0 18px;max-width:17ch}
-.name{font:700 clamp(1.2rem,2.6vw,1.7rem) var(--display);margin:0 0 22px}
-.n1{color:var(--gold)}.n2{color:var(--copper)}
-.hero p.d{max-width:52ch;color:var(--muted);font-size:1.15rem;margin:0 0 32px}
-.btns{display:flex;gap:14px;flex-wrap:wrap}
-.btn{display:inline-block;padding:13px 24px;border-radius:999px;font:600 1rem var(--body);text-decoration:none;border:1.5px solid var(--copper);color:var(--ink);background:none;cursor:pointer}
-.btn.main{background:var(--copper);color:#1b1208}
-.btn:hover{filter:brightness(1.12)}
-.traces{position:absolute;right:-60px;top:0;height:100%;width:62%;min-width:520px;z-index:0;pointer-events:none}
-.traces path{fill:none;stroke:var(--copper);stroke-width:3;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:1200;stroke-dashoffset:1200;animation:draw 3.2s .2s ease-out forwards}
-.traces path.b{stroke:var(--gold);animation-delay:.7s}
-.traces path.c{stroke:var(--muted);animation-delay:1.1s;opacity:.6}
-.traces circle{fill:var(--board);stroke:var(--gold);stroke-width:3;opacity:0;animation:pad .5s 2.6s forwards}
-@keyframes draw{to{stroke-dashoffset:0}}
-@keyframes pad{to{opacity:1}}
-.hero .wrap{position:relative;z-index:1;width:100%}
-@media (prefers-reduced-motion:reduce){.traces path{animation:none;stroke-dashoffset:0}.traces circle{animation:none;opacity:1}html{scroll-behavior:auto}}
-/* projects */
-h2{font:700 clamp(1.8rem,4vw,2.8rem)/1.1 var(--display);letter-spacing:-.02em;margin:0 0 12px}
-.sub{color:var(--muted);max-width:52ch;margin:0 0 32px}
-.feature{min-height:100vh;min-height:100svh;display:flex;align-items:center;border-top:1px solid var(--line);padding:48px 0}
-.feature .in{display:grid;grid-template-columns:1fr 1.2fr;gap:clamp(28px,5vw,64px);align-items:center}
-.feature.rev .txt{order:2}
-.tags{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px}
-.tag{font-size:.82rem;font-weight:600;padding:3px 12px;border-radius:999px;border:1.5px solid}
-.tag.hw{color:var(--copper);border-color:var(--copper)}
-.tag.sw{color:var(--ink);border-color:var(--ink)}
-.feature h3{font:800 clamp(1.9rem,4vw,3rem)/1.08 var(--display);letter-spacing:-.02em;margin:0 0 16px}
-.feature h3 a{text-decoration:none}
-.feature h3 a:hover{color:var(--gold)}
-.feature p{color:var(--muted);margin:0 0 14px}
-.stack{padding-top:14px;margin:6px 0 24px;border-top:1px dashed var(--line);font-size:.95rem;color:var(--muted)}
-.photos{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-.ph{border:2px dashed var(--line);border-radius:14px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;color:var(--muted);font-size:.9rem;text-align:center;padding:12px;background:rgba(0,0,0,.08)}
-.ph svg{width:30px;height:30px;stroke:currentColor;fill:none;stroke-width:1.6}
-.ph{aspect-ratio:16/9;position:relative;overflow:hidden}.ph.a{grid-column:span 2;border-radius:14px 44px 14px 14px}
-.more{border-top:1px solid var(--line);padding:56px 0;text-align:center}
-.extra{border-top:1px solid var(--line);padding:56px 0}
-.extra[hidden]{display:none}
-.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:20px}
-.card{position:relative;background:var(--board2);border:1px solid var(--line);border-radius:14px;padding:18px;display:flex;flex-direction:column;gap:12px}
-.card:hover{border-color:var(--gold)}
-.card .ph{aspect-ratio:16/9}
-.card h3{font:700 1.3rem/1.2 var(--display);margin:0}
-.card h3 a{text-decoration:none}
-.card h3 a::after{content:"";position:absolute;inset:0;border-radius:14px}
-.card p{margin:0;color:var(--muted);font-size:.98rem}
-.card .stack{margin:auto 0 0;padding-top:12px}
-.card .go{font-weight:600;color:var(--gold)}
-@media (max-width:860px){
-  .feature{min-height:auto}.feature .in{grid-template-columns:1fr}.feature.rev .txt{order:0}
-  .traces{opacity:.3;width:100%}nav a{margin-left:14px;font-size:.95rem}
-}
-/* skills */
-section.sk{padding:clamp(56px,8vw,96px) 0;border-top:1px solid var(--line)}
-.skg{display:grid;grid-template-columns:1fr 1fr;gap:36px 44px;margin-top:28px}
-@media (max-width:760px){.skg{grid-template-columns:1fr}}
-.skg h3{font:700 1.2rem var(--display);margin:0 0 14px;color:var(--copper)}
-.chips{display:flex;flex-wrap:wrap;gap:10px}
-.chip{display:flex;align-items:center;gap:10px;padding:7px 16px 7px 7px;border:1px solid var(--line);border-radius:12px;font-weight:500}
-.chip i{width:38px;height:38px;border-radius:9px;border:1.5px dashed var(--line);flex:none;overflow:hidden}.chip i img{width:100%;height:100%;object-fit:contain;display:block}
-.chip i.s{font-size:.66rem}
-.chip svg{width:22px;height:22px;fill:#fff}
-/* formation + contact */
-section.fm,section.contact{padding:clamp(56px,8vw,96px) 0;border-top:1px solid var(--line)}
-.path{display:grid;grid-template-columns:1fr 1fr;gap:18px}
-@media (max-width:760px){.path{grid-template-columns:1fr}}
-.path div{padding:22px;border:1px solid var(--line);border-radius:14px}
-.path h3{font:700 1.15rem var(--display);margin:0 0 6px}
-.path p{margin:0;color:var(--muted);font-size:.98rem}
-.path .big{grid-column:1/-1;border-radius:14px 44px 14px 14px;background:var(--board2)}
-@media (max-width:760px){.path .big{grid-column:auto}}
-.contact a.mail{display:inline-block;font:800 clamp(1.4rem,4vw,2.6rem)/1.2 var(--display);letter-spacing:-.02em;border-bottom:3px solid var(--copper);text-decoration:none;word-break:break-all}
-.links{display:flex;gap:22px;margin-top:26px;flex-wrap:wrap}
-.links a{font-weight:600;color:var(--gold)}
-footer{padding:28px 0 40px;color:var(--muted);font-size:.92rem;border-top:1px solid var(--line)}
-.path button{font:inherit;color:inherit;text-align:left;background:none;padding:22px;border:1px solid var(--line);border-radius:14px;cursor:pointer;display:block;width:100%}
-.path button:hover{border-color:var(--gold)}
-.path button h3{font:700 1.15rem var(--display);margin:0 0 6px}
-.path button p{margin:0 0 10px;color:var(--muted);font-size:.98rem}
-.path .more-i{color:var(--gold);font-weight:600;font-size:.95rem}
-dialog{background:var(--board2);color:var(--ink);border:1px solid var(--line);border-radius:14px 44px 14px 14px;width:min(94vw,760px);max-height:90vh;padding:clamp(22px,4vw,36px)}
-dialog::backdrop{background:rgba(0,0,0,.65)}
-dialog h3{font:800 clamp(1.5rem,3.4vw,2rem)/1.15 var(--display);margin:0 0 6px}
-dialog .meta{color:var(--copper);font-weight:600;margin:0 0 16px}
-dialog p,dialog li{color:var(--muted)}
-dialog ul{padding-left:20px}
-.certs{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:18px 0 24px}
-.certs .ph{aspect-ratio:16/9;font-size:.82rem}
-@media (max-width:560px){.certs{grid-template-columns:1fr}}
-dialog .acts{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
-dialog .pending{color:var(--muted);font-size:.92rem;border:1.5px dashed var(--line);border-radius:999px;padding:11px 20px}
-.ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
-.ph img[src=""],.chip i img[src=""]{display:none}
-.ph video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
-.ph video[src=""],.chip i img[src=""]{display:none}
-.ph .lbl{display:flex;flex-direction:column;align-items:center;gap:6px}
-.ph .lbl small{opacity:.75;font-size:.78rem}
-.ph:has(img:not([src=""])){border-style:solid}
-.ph:has(img:not([src=""])) .lbl{display:none}
-.ph:has(video:not([src=""])){border-style:solid}
-.ph:has(video:not([src=""])) .lbl{display:none}
-.certs .ph img{object-fit:contain}
-.certs .ph video{object-fit:contain}
-.chip i{position:relative}
-.chip i img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain}
-html{-webkit-text-size-adjust:100%}
-header.top{flex-wrap:wrap;gap:8px 20px}
-nav{display:flex;flex-wrap:wrap;gap:4px 0}
-@media (max-width:560px){
-  header.top{flex-direction:column;align-items:flex-start}
-  nav a{margin:0 16px 0 0}
-  .hero{min-height:auto;padding:24px 0 56px}
-  .btn{padding:12px 20px}
-  .chip{padding-right:12px}
-  .feature{padding:36px 0}
-}
-@media (min-width:1500px){.wrap{max-width:1320px}}
-</style>
+<link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="cam" viewBox="0 0 24 24"><path d="M3 8h4l2-3h6l2 3h4v11H3z"/><circle cx="12" cy="13" r="3.5"/></symbol></svg>
@@ -175,7 +32,7 @@ nav{display:flex;flex-wrap:wrap;gap:4px 0}
   <div class="wrap">
     <h1>Ingeniero en sistemas computacionales</h1>
     <p class="name"><span class="n1">Carlos Josué</span> <span class="n2">González Silva</span></p>
-    <p class="d">Estudiante de noveno semestre en el Tecnológico Nacional de México, Campus León, con especialidad en Inteligencia Artificial. Interesado en la investigación y en los sistemas embebidos.</p>
+    <p class="d">Estudiante de noveno semestre en el Tecnológico Nacional de México, Campus León, con especialidad en Inteligencia Artificial. Me interesan la investigación y los sistemas embebidos.</p>
     <div class="btns"><a class="btn main" href="#proyectos">Ver proyectos</a><a class="btn" href="#contacto">Contactarme</a></div>
   </div>
 </div>
@@ -187,19 +44,18 @@ nav{display:flex;flex-wrap:wrap;gap:4px 0}
     <div class="txt">
       <div class="tags"><span class="tag hw">Hardware</span><span class="tag sw">Software</span></div>
       <h3><a href="https://github.com/Josue-Silva-T/ViveroAutomatizado" target="_blank" rel="noopener">Vivero automatizado para hongos ostra</a></h3>
-      <p>Prototipo individual que automatiza el cultivo: control de humedad con umbrales configurables, sensores de temperatura, luz y humedad de sustrato, pantalla OLED y cámara. En dos ciclos de prueba obtuvo seis cosechas, con humedad registrada de 80 a 90 %.</p>
-      <p>Dos ESP32 intercambian fotografías por sockets sobre Wi-Fi. Diseñé dos PCB modulares en KiCad y las fabriqué con grabado láser, ataque químico y soldadura.</p>
+      <p>Prototipo individual que automatiza el cultivo. Incluye control de humedad con umbrales configurables, sensores de temperatura, luz y humedad ambiental, pantalla OLED y cámara. En dos ciclos de prueba obtuvo seis cosechas, con una humedad registrada de entre 80 y 90 %.</p>
+      <p>Dos ESP32 intercambian fotografías mediante sockets sobre Wi-Fi. Diseñé dos PCB modulares en KiCad y las fabriqué con grabado láser, ataque químico y soldadura.</p>
       <div class="stack">ESP32 · ESP32-CAM · C++ · I2C · KiCad</div>
       <a class="btn main" href="https://github.com/Josue-Silva-T/ViveroAutomatizado" target="_blank" rel="noopener">Ver repositorio</a>
     </div>
     <div class="photos">
       <!-- 1600×900 px, horizontal 16:9 · ejemplo: img/vivero-1.jpg -->
-      
-      <div class="ph a"><video src="img/vivero/video.mp4" autoplay muted alt="Foto principal del vivero"><span class="lbl"><svg><use href="#cam"/></svg>Foto principal del vivero<small>1600×900 px</small></span></div>
+      <div class="ph a"><video src="img/vivero/video.mp4" loop autoplay muted playsinline aria-label="Video del vivero automatizado en funcionamiento"></video><span class="lbl"><svg><use href="#cam"/></svg>Foto principal del vivero<small>1600×900 px</small></span></div>
       <!-- 1200×675 px, horizontal 16:9 · ejemplo: img/vivero-2.jpg -->
-      <div class="ph"><img src="img/vivero/pcb.png" alt="Foto 2"><span class="lbl"><svg><use href="#cam"/></svg>Foto 2<small>1200×675 px</small></span></div>
+      <div class="ph"><img src="img/vivero/pcb.png" alt="Placa de circuito impreso (PCB) del vivero"><span class="lbl"><svg><use href="#cam"/></svg>Foto 2<small>1200×675 px</small></span></div>
       <!-- 1200×675 px, horizontal 16:9 · ejemplo: img/vivero-3.jpg -->
-      <div class="ph"><img src="img/vivero/diseno.png" alt="Foto 3"><span class="lbl"><svg><use href="#cam"/></svg>Foto 3<small>1200×675 px</small></span></div>
+      <div class="ph"><img src="img/vivero/diseno.png" alt="Diseño del prototipo del vivero"><span class="lbl"><svg><use href="#cam"/></svg>Foto 3<small>1200×675 px</small></span></div>
     </div>
   </div>
 </section>
@@ -209,18 +65,18 @@ nav{display:flex;flex-wrap:wrap;gap:4px 0}
     <div class="txt">
       <div class="tags"><span class="tag hw">Hardware</span><span class="tag sw">Software</span></div>
       <h3><a href="https://github.com/Josue-Silva-T/Control-telescope" target="_blank" rel="noopener">Control de telescopio con interfaz HMI</a></h3>
-      <p>Prototipo de bajo costo para un telescopio reflector newtoniano con montura altazimutal. Reutilicé motores de ventilador para los movimientos horizontal y vertical, e integré un motor 28BYJ-48 para el enfoque. Con él pude observar la Luna.</p>
-      <p>Diseñé los circuitos de control con relevadores y transistores, y desarrollé una app de escritorio en C# que habla por puerto serial con un Arduino Uno para iniciar, pausar y ajustar el enfoque. Una ESP32-CAM aporta la cámara IP.</p>
+      <p>Prototipo de bajo costo para un telescopio reflector newtoniano con montura altazimutal. Reutilicé motores de ventilador para los movimientos horizontal y vertical, e integré un motor 28BYJ-48 para el enfoque. Con él pude observar la Luna y otros astros.</p>
+      <p>Diseñé los circuitos de control con relevadores y transistores, y desarrollé una aplicación de escritorio en C# que se comunica por puerto serial con un Arduino Uno para iniciar, pausar y ajustar el enfoque. Además, una ESP32-CAM funciona como cámara IP.</p>
       <div class="stack">C# · C++ · Arduino Uno · ESP32-CAM · Electrónica de potencia</div>
       <a class="btn main" href="https://github.com/Josue-Silva-T/Control-telescope" target="_blank" rel="noopener">Ver repositorio</a>
     </div>
     <div class="photos">
       <!-- 1600×900 px, horizontal 16:9 · ejemplo: img/telescopio-1.jpg -->
-      <div class="ph a"><img src="img/telescopio/ControlTelescope.png" alt="Foto principal del telescopio"><span class="lbl"><svg><use href="#cam"/></svg>Foto principal del telescopio<small>1600×900 px</small></span></div>
+      <div class="ph a"><img src="img/telescopio/ControlTelescope.png" alt="Sistema de control del telescopio"><span class="lbl"><svg><use href="#cam"/></svg>Foto principal del telescopio<small>1600×900 px</small></span></div>
       <!-- 1200×675 px, horizontal 16:9 · ejemplo: img/telescopio-2.jpg -->
-      <div class="ph"><video src="img/telescopio/montura.mp4" autoplay muted alt="Foto 2"><span class="lbl"><svg><use href="#cam"/></svg>Foto 2<small>1200×675 px</small></span></div>
+      <div class="ph"><video src="img/telescopio/montura.mp4" autoplay muted playsinline aria-label="Video de la montura del telescopio en movimiento"></video><span class="lbl"><svg><use href="#cam"/></svg>Foto 2<small>1200×675 px</small></span></div>
       <!-- 1200×675 px, horizontal 16:9 · ejemplo: img/telescopio-3.jpg -->
-      <div class="ph"><img src="img/telescopio/Camara.png" alt="Foto 3"><span class="lbl"><svg><use href="#cam"/></svg>Foto 3<small>1200×675 px</small></span></div>
+      <div class="ph"><img src="img/telescopio/Camara.png" alt="Cámara IP del telescopio"><span class="lbl"><svg><use href="#cam"/></svg>Foto 3<small>1200×675 px</small></span></div>
     </div>
   </div>
 </section>
@@ -233,28 +89,28 @@ nav{display:flex;flex-wrap:wrap;gap:4px 0}
   <div class="wrap cards">
     <article class="card">
       <!-- 1200×675 px, horizontal 16:9 · ejemplo: img/stellarpixels.jpg -->
-      <div class="ph"><img src="img/otros/stellarpixel.gif" alt="Espacio para fotografías"><span class="lbl"><svg><use href="#cam"/></svg>Espacio para fotografías<small>1200×675 px</small></span></div>
+      <div class="ph"><img src="img/otros/stellarpixel.gif" alt="Aplicación StellarPixels en funcionamiento"><span class="lbl"><svg><use href="#cam"/></svg>Foto del proyecto<small>1200×675 px</small></span></div>
       <div class="tags"><span class="tag sw">Software</span></div>
       <h3><a href="https://github.com/Josue-Silva-T/StellarPixels" target="_blank" rel="noopener">StellarPixels (NASA Space Apps 2025)</a></h3>
-      <p>Como líder de un equipo de 4, entregué una app de escritorio para visualizar imágenes astronómicas TIFF de 4 a 10 GB, con zoom, desplazamiento y recorte.</p>
+      <p>Como líder de un equipo de cuatro integrantes, desarrollé una aplicación de escritorio para visualizar imágenes astronómicas TIFF de 4 a 10 GB, con zoom, desplazamiento y recorte.</p>
       <div class="stack">Python · PyQt5</div>
       <span class="go">Ver repositorio</span>
     </article>
     <article class="card">
       <!-- 1200×675 px, horizontal 16:9 · ejemplo: img/cine-local.jpg -->
-      <div class="ph"><video src="img/otros/CineLocal.mp4" autoplay muted alt="Espacio para fotografías"><span class="lbl"><svg><use href="#cam"/></svg>Espacio para fotografías<small>1200×675 px</small></span></div>
+      <div class="ph"><video src="img/otros/CineLocal.mp4" autoplay muted loop playsinline aria-label="Video de la plataforma Cine-Local en funcionamiento"></video><span class="lbl"><svg><use href="#cam"/></svg>Foto del proyecto<small>1200×675 px</small></span></div>
       <div class="tags"><span class="tag sw">Software</span></div>
       <h3><a href="https://github.com/Josue-Silva-T/Cine-Local" target="_blank" rel="noopener">Cine-Local</a></h3>
-      <p>Plataforma multimedia para redes locales con perfiles de usuario, historial de reproducción y reseñas. Funciona en Windows y Linux.</p>
+      <p>Plataforma multimedia para redes locales con perfiles de usuario, historial de reproducción y reseñas. Está diseñada para ejecutarse en un servidor Linux.</p>
       <div class="stack">Node.js</div>
       <span class="go">Ver repositorio</span>
     </article>
     <article class="card">
       <!-- 1200×675 px, horizontal 16:9 · ejemplo: img/joymap.jpg -->
-      <div class="ph"><img src="img/otros/JoyMap.gif" alt="Espacio para fotografías"><span class="lbl"><svg><use href="#cam"/></svg>Espacio para fotografías<small>1200×675 px</small></span></div>
+      <div class="ph"><img src="img/otros/JoyMap.gif" alt="Aplicación JoyMap en funcionamiento"><span class="lbl"><svg><use href="#cam"/></svg>Foto del proyecto<small>1200×675 px</small></span></div>
       <div class="tags"><span class="tag sw">Software</span></div>
       <h3><a href="https://github.com/Josue-Silva-T/JoyMap" target="_blank" rel="noopener">JoyMap</a></h3>
-      <p>App que permite usar un mando Nimbus+ en Windows mediante un controlador virtual, con botones configurables desde archivos CSV.</p>
+      <p>Aplicación que permite usar un mando Nimbus+ en Windows mediante un controlador virtual, con botones configurables desde archivos CSV.</p>
       <div class="stack">Python</div>
       <span class="go">Ver repositorio</span>
     </article>
@@ -304,7 +160,7 @@ nav{display:flex;flex-wrap:wrap;gap:4px 0}
     <h2>Formación y comunidad</h2>
     <p class="sub">Estudio, certificaciones y colectivos en los que participo.</p>
     <div class="path">
-      <div class="big"><h3>Ingeniería en Sistemas Computacionales</h3><p>Instituto Tecnológico de León, TecNM. Especialidad en Inteligencia Artificial, noveno semestre, egreso estimado en agosto de 2027. Busco 480 horas de residencias (4 a 6 meses) en I+D, prototipos, electrónica aplicada o sistemas embebidos, de preferencia en León, Guanajuato.</p></div>
+      <div class="big"><h3>Ingeniería en Sistemas Computacionales</h3><p>Instituto Tecnológico de León, TecNM. Especialidad en Inteligencia Artificial, noveno semestre, egreso estimado en agosto de 2027.</p></div>
       <button data-open="d-cisco"><h3>Cisco Networking Academy</h3><p>220 horas: CCNA Redes Empresariales, Seguridad y Automatización, JavaScript, CSS y Python.</p><span class="more-i">Ver cursos y certificados</span></button>
       <button data-open="d-unam"><h3>Escuela de Cómputo Cuántico, UNAM</h3><p>Quinta edición, Facultad de Ingeniería, 28 horas (agosto de 2026).</p><span class="more-i">Ver detalles y constancia</span></button>
       <button data-open="d-sing"><h3>Singularity, Nodo León</h3><p>Colectivo de tecnología y ciencia abierta. Representé al colectivo en JSConf México 2026, Guadalajara.</p><span class="more-i">Ver más del colectivo</span></button>
@@ -325,7 +181,7 @@ nav{display:flex;flex-wrap:wrap;gap:4px 0}
   <h3 id="t-cisco">Cisco Networking Academy</h3>
   <p class="meta">220 horas de formación</p>
   <ul>
-    <li>CCNA: Redes Empresariales, Seguridad y Automatización (70 h, junio de 2026). Tercer curso de la serie y preparación para la certificación CCNA.</li>
+    <li>CCNA: Redes Empresariales, Seguridad y Automatización (70 h, junio de 2026). Tercer curso de la serie, orientado a la certificación CCNA.</li>
     <li>JavaScript Essentials 2 (50 h)</li>
     <li>JavaScript Essentials 1 (40 h)</li>
     <li>CSS Essentials (30 h)</li>
@@ -349,32 +205,32 @@ nav{display:flex;flex-wrap:wrap;gap:4px 0}
 <dialog id="d-sing" aria-labelledby="t-sing">
   <h3 id="t-sing">Singularity (Nodo León)</h3>
   <p class="meta">Colectivo de tecnología y ciencia abierta · Infraestructura y Software · desde marzo de 2026</p>
-  <p>Colaboro en el proyecto León Bio-Lab: el prototipo inicial de una estación meteorológica de código abierto, con selección de componentes, ensamblaje y soldadura.</p>
-  <p>Participo en los talleres del programa de becas para colectivos juveniles del IMJU León, con el que el colectivo obtuvo un apoyo de $15,000 MXN. También colaboro en investigación y en la preparación de artículos científicos, y representé al colectivo en JSConf México 2026, Guadalajara.</p>
+  <p>Colaboro en el proyecto León Bio-Lab, en el prototipo inicial de una estación meteorológica de código abierto: selección de componentes, ensamblaje y soldadura.</p>
+  <p>Participo en los talleres del programa de becas para colectivos juveniles del IMJU León, con el cual el colectivo obtuvo un apoyo de $15,000 MXN. Representé al colectivo en JSConf México 2026, Guadalajara.</p>
   <div class="certs"><!-- 1200×675 px, horizontal 16:9 · ejemplo: img/singularity-1.jpg -->
       <div class="ph"><img src="img/singularity/Colectivo.png" alt="Foto del colectivo"><span class="lbl"><svg><use href="#cam"/></svg>Foto del colectivo<small>1200×675 px</small></span></div><!-- 1200×675 px, horizontal 16:9 · ejemplo: img/singularity-jsconf.jpg -->
       <div class="ph"><img src="img/singularity/Evento.png" alt="Foto en JSConf México 2026"><span class="lbl"><svg><use href="#cam"/></svg>Foto en JSConf México 2026<small>1200×675 px</small></span></div></div>
   <div class="links"><a href="https://www.instagram.com/singularity.open/" target="_blank" rel="noopener">Instagram</a></div>
-  <div style="height:14px"></div>
   <form method="dialog" class="acts"><button class="btn main">Cerrar</button></form>
 </dialog>
 
 <footer><div class="wrap">© 2026 Carlos Josué González Silva. León, Guanajuato, México.</div></footer>
 
-<script>
-(function(){
-  var b=document.getElementById('more'),x=document.getElementById('extra');
-  b.addEventListener('click',function(){
-    var open=x.hidden;
-    x.hidden=!open;
-    b.setAttribute('aria-expanded',open?'true':'false');
-    b.textContent=open?'Ver menos':'Ver más proyectos';
-    if(open){x.scrollIntoView({behavior:'smooth',block:'start'})}
-  });
-  var ds=document.querySelectorAll('[data-open]');
-  ds.forEach(function(el){el.addEventListener('click',function(){document.getElementById(el.dataset.open).showModal()})});
-  document.querySelectorAll('dialog').forEach(function(d){d.addEventListener('click',function(e){if(e.target===d)d.close()})});
-})();
-</script>
+<!-- Botón para volver al inicio -->
+<button class="to-top" id="to-top" type="button" aria-label="Volver al inicio">
+  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+</button>
+
+<!-- Ventana para ver imágenes y videos en grande -->
+<dialog class="lightbox" id="lightbox" aria-label="Vista ampliada">
+  <button class="lb-close" type="button" aria-label="Cerrar vista ampliada">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+  </button>
+  <div class="lb-body"></div>
+  <p class="lb-cap"></p>
+</dialog>
+
+<script src="js/main.js" defer></script>
+
 </body>
 </html>
