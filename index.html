@@ -126,11 +126,16 @@ dialog .acts{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
 dialog .pending{color:var(--muted);font-size:.92rem;border:1.5px dashed var(--line);border-radius:999px;padding:11px 20px}
 .ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
 .ph img[src=""],.chip i img[src=""]{display:none}
+.ph video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+.ph video[src=""],.chip i img[src=""]{display:none}
 .ph .lbl{display:flex;flex-direction:column;align-items:center;gap:6px}
 .ph .lbl small{opacity:.75;font-size:.78rem}
 .ph:has(img:not([src=""])){border-style:solid}
 .ph:has(img:not([src=""])) .lbl{display:none}
+.ph:has(video:not([src=""])){border-style:solid}
+.ph:has(video:not([src=""])) .lbl{display:none}
 .certs .ph img{object-fit:contain}
+.certs .ph video{object-fit:contain}
 .chip i{position:relative}
 .chip i img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain}
 html{-webkit-text-size-adjust:100%}
@@ -181,19 +186,20 @@ nav{display:flex;flex-wrap:wrap;gap:4px 0}
   <div class="wrap in">
     <div class="txt">
       <div class="tags"><span class="tag hw">Hardware</span><span class="tag sw">Software</span></div>
-      <h3><a href="https://github.com/Josue-Silva-T" target="_blank" rel="noopener">Vivero automatizado para hongos ostra</a></h3>
+      <h3><a href="https://github.com/Josue-Silva-T/ViveroAutomatizado" target="_blank" rel="noopener">Vivero automatizado para hongos ostra</a></h3>
       <p>Prototipo individual que automatiza el cultivo: control de humedad con umbrales configurables, sensores de temperatura, luz y humedad de sustrato, pantalla OLED y cámara. En dos ciclos de prueba obtuvo seis cosechas, con humedad registrada de 80 a 90 %.</p>
       <p>Dos ESP32 intercambian fotografías por sockets sobre Wi-Fi. Diseñé dos PCB modulares en KiCad y las fabriqué con grabado láser, ataque químico y soldadura.</p>
       <div class="stack">ESP32 · ESP32-CAM · C++ · I2C · KiCad</div>
-      <a class="btn main" href="https://github.com/Josue-Silva-T" target="_blank" rel="noopener">Ver repositorio</a>
+      <a class="btn main" href="https://github.com/Josue-Silva-T/ViveroAutomatizado" target="_blank" rel="noopener">Ver repositorio</a>
     </div>
     <div class="photos">
       <!-- 1600×900 px, horizontal 16:9 · ejemplo: img/vivero-1.jpg -->
-      <div class="ph a"><img src="" alt="Foto principal del vivero"><span class="lbl"><svg><use href="#cam"/></svg>Foto principal del vivero<small>1600×900 px</small></span></div>
+      
+      <div class="ph a"><video src="img/vivero/video.mp4" autoplay muted alt="Foto principal del vivero"><span class="lbl"><svg><use href="#cam"/></svg>Foto principal del vivero<small>1600×900 px</small></span></div>
       <!-- 1200×675 px, horizontal 16:9 · ejemplo: img/vivero-2.jpg -->
-      <div class="ph"><img src="" alt="Foto 2"><span class="lbl"><svg><use href="#cam"/></svg>Foto 2<small>1200×675 px</small></span></div>
+      <div class="ph"><img src="img/vivero/pcb.png" alt="Foto 2"><span class="lbl"><svg><use href="#cam"/></svg>Foto 2<small>1200×675 px</small></span></div>
       <!-- 1200×675 px, horizontal 16:9 · ejemplo: img/vivero-3.jpg -->
-      <div class="ph"><img src="" alt="Foto 3"><span class="lbl"><svg><use href="#cam"/></svg>Foto 3<small>1200×675 px</small></span></div>
+      <div class="ph"><img src="img/vivero/diseno.png" alt="Foto 3"><span class="lbl"><svg><use href="#cam"/></svg>Foto 3<small>1200×675 px</small></span></div>
     </div>
   </div>
 </section>
@@ -202,19 +208,19 @@ nav{display:flex;flex-wrap:wrap;gap:4px 0}
   <div class="wrap in">
     <div class="txt">
       <div class="tags"><span class="tag hw">Hardware</span><span class="tag sw">Software</span></div>
-      <h3><a href="https://github.com/Josue-Silva-T" target="_blank" rel="noopener">Control de telescopio con interfaz HMI</a></h3>
+      <h3><a href="https://github.com/Josue-Silva-T/Control-telescope" target="_blank" rel="noopener">Control de telescopio con interfaz HMI</a></h3>
       <p>Prototipo de bajo costo para un telescopio reflector newtoniano con montura altazimutal. Reutilicé motores de ventilador para los movimientos horizontal y vertical, e integré un motor 28BYJ-48 para el enfoque. Con él pude observar la Luna.</p>
       <p>Diseñé los circuitos de control con relevadores y transistores, y desarrollé una app de escritorio en C# que habla por puerto serial con un Arduino Uno para iniciar, pausar y ajustar el enfoque. Una ESP32-CAM aporta la cámara IP.</p>
       <div class="stack">C# · C++ · Arduino Uno · ESP32-CAM · Electrónica de potencia</div>
-      <a class="btn main" href="https://github.com/Josue-Silva-T" target="_blank" rel="noopener">Ver repositorio</a>
+      <a class="btn main" href="https://github.com/Josue-Silva-T/Control-telescope" target="_blank" rel="noopener">Ver repositorio</a>
     </div>
     <div class="photos">
       <!-- 1600×900 px, horizontal 16:9 · ejemplo: img/telescopio-1.jpg -->
-      <div class="ph a"><img src="" alt="Foto principal del telescopio"><span class="lbl"><svg><use href="#cam"/></svg>Foto principal del telescopio<small>1600×900 px</small></span></div>
+      <div class="ph a"><img src="img/telescopio/ControlTelescope.png" alt="Foto principal del telescopio"><span class="lbl"><svg><use href="#cam"/></svg>Foto principal del telescopio<small>1600×900 px</small></span></div>
       <!-- 1200×675 px, horizontal 16:9 · ejemplo: img/telescopio-2.jpg -->
-      <div class="ph"><img src="" alt="Foto 2"><span class="lbl"><svg><use href="#cam"/></svg>Foto 2<small>1200×675 px</small></span></div>
+      <div class="ph"><video src="img/telescopio/montura.mp4" autoplay muted alt="Foto 2"><span class="lbl"><svg><use href="#cam"/></svg>Foto 2<small>1200×675 px</small></span></div>
       <!-- 1200×675 px, horizontal 16:9 · ejemplo: img/telescopio-3.jpg -->
-      <div class="ph"><img src="" alt="Foto 3"><span class="lbl"><svg><use href="#cam"/></svg>Foto 3<small>1200×675 px</small></span></div>
+      <div class="ph"><img src="img/telescopio/Camara.png" alt="Foto 3"><span class="lbl"><svg><use href="#cam"/></svg>Foto 3<small>1200×675 px</small></span></div>
     </div>
   </div>
 </section>
@@ -227,36 +233,27 @@ nav{display:flex;flex-wrap:wrap;gap:4px 0}
   <div class="wrap cards">
     <article class="card">
       <!-- 1200×675 px, horizontal 16:9 · ejemplo: img/stellarpixels.jpg -->
-      <div class="ph"><img src="" alt="Espacio para fotografías"><span class="lbl"><svg><use href="#cam"/></svg>Espacio para fotografías<small>1200×675 px</small></span></div>
+      <div class="ph"><img src="img/otros/stellarpixel.gif" alt="Espacio para fotografías"><span class="lbl"><svg><use href="#cam"/></svg>Espacio para fotografías<small>1200×675 px</small></span></div>
       <div class="tags"><span class="tag sw">Software</span></div>
-      <h3><a href="https://github.com/Josue-Silva-T" target="_blank" rel="noopener">StellarPixels (NASA Space Apps 2025)</a></h3>
+      <h3><a href="https://github.com/Josue-Silva-T/StellarPixels" target="_blank" rel="noopener">StellarPixels (NASA Space Apps 2025)</a></h3>
       <p>Como líder de un equipo de 4, entregué una app de escritorio para visualizar imágenes astronómicas TIFF de 4 a 10 GB, con zoom, desplazamiento y recorte.</p>
       <div class="stack">Python · PyQt5</div>
       <span class="go">Ver repositorio</span>
     </article>
     <article class="card">
-      <!-- 1200×675 px, horizontal 16:9 · ejemplo: img/estacion-meteorologica.jpg -->
-      <div class="ph"><img src="" alt="Espacio para fotografías"><span class="lbl"><svg><use href="#cam"/></svg>Espacio para fotografías<small>1200×675 px</small></span></div>
-      <div class="tags"><span class="tag hw">Hardware</span><span class="tag sw">Software</span></div>
-      <h3><a href="https://github.com/Josue-Silva-T" target="_blank" rel="noopener">Estación meteorológica abierta</a></h3>
-      <p>Con el colectivo Singularity (Nodo León, proyecto León Bio-Lab) colaboro en el prototipo inicial: selección de componentes, ensamblaje y soldadura.</p>
-      <div class="stack">Electrónica · Soldadura · Ciencia abierta</div>
-      <span class="go">Ver repositorio</span>
-    </article>
-    <article class="card">
       <!-- 1200×675 px, horizontal 16:9 · ejemplo: img/cine-local.jpg -->
-      <div class="ph"><img src="" alt="Espacio para fotografías"><span class="lbl"><svg><use href="#cam"/></svg>Espacio para fotografías<small>1200×675 px</small></span></div>
+      <div class="ph"><video src="img/otros/CineLocal.mp4" autoplay muted alt="Espacio para fotografías"><span class="lbl"><svg><use href="#cam"/></svg>Espacio para fotografías<small>1200×675 px</small></span></div>
       <div class="tags"><span class="tag sw">Software</span></div>
-      <h3><a href="https://github.com/Josue-Silva-T" target="_blank" rel="noopener">Cine-Local</a></h3>
+      <h3><a href="https://github.com/Josue-Silva-T/Cine-Local" target="_blank" rel="noopener">Cine-Local</a></h3>
       <p>Plataforma multimedia para redes locales con perfiles de usuario, historial de reproducción y reseñas. Funciona en Windows y Linux.</p>
       <div class="stack">Node.js</div>
       <span class="go">Ver repositorio</span>
     </article>
     <article class="card">
       <!-- 1200×675 px, horizontal 16:9 · ejemplo: img/joymap.jpg -->
-      <div class="ph"><img src="" alt="Espacio para fotografías"><span class="lbl"><svg><use href="#cam"/></svg>Espacio para fotografías<small>1200×675 px</small></span></div>
+      <div class="ph"><img src="img/otros/JoyMap.gif" alt="Espacio para fotografías"><span class="lbl"><svg><use href="#cam"/></svg>Espacio para fotografías<small>1200×675 px</small></span></div>
       <div class="tags"><span class="tag sw">Software</span></div>
-      <h3><a href="https://github.com/Josue-Silva-T" target="_blank" rel="noopener">JoyMap</a></h3>
+      <h3><a href="https://github.com/Josue-Silva-T/JoyMap" target="_blank" rel="noopener">JoyMap</a></h3>
       <p>App que permite usar un mando Nimbus+ en Windows mediante un controlador virtual, con botones configurables desde archivos CSV.</p>
       <div class="stack">Python</div>
       <span class="go">Ver repositorio</span>
@@ -269,20 +266,20 @@ nav{display:flex;flex-wrap:wrap;gap:4px 0}
     <h2>Habilidades</h2>
     <div class="skg">
       <div><h3>Lenguajes</h3><div class="chips">
-        <span class="chip"><i><!-- 128×128 px, PNG/SVG fondo transparente · icons/python.svg --><img src="" alt="Icono de Python"></i>Python</span>
-        <span class="chip"><i><!-- 128×128 px, PNG/SVG fondo transparente · icons/c.svg --><img src="" alt="Icono de C"></i>C</span>
-        <span class="chip"><i><!-- 128×128 px, PNG/SVG fondo transparente · icons/cpp.svg --><img src="" alt="Icono de C++"></i>C++</span>
-        <span class="chip"><i><!-- 128×128 px, PNG/SVG fondo transparente · icons/csharp.svg --><img src="" alt="Icono de C#"></i>C#</span>
-        <span class="chip"><i><!-- 128×128 px, PNG/SVG fondo transparente · icons/sql.svg --><img src="" alt="Icono de SQL"></i>SQL</span>
+        <span class="chip"><i><!-- 128×128 px, PNG/SVG fondo transparente · icons/python.svg --><img src="icons/Python.webp" alt="Icono de Python"></i>Python</span>
+        <span class="chip"><i><!-- 128×128 px, PNG/SVG fondo transparente · icons/c.svg --><img src="icons/C.webp" alt="Icono de C"></i>C</span>
+        <span class="chip"><i><!-- 128×128 px, PNG/SVG fondo transparente · icons/cpp.svg --><img src="icons/Cpp.webp" alt="Icono de C++"></i>C++</span>
+        <span class="chip"><i><!-- 128×128 px, PNG/SVG fondo transparente · icons/csharp.svg --><img src="icons/cs.svg" alt="Icono de C#"></i>C#</span>
+        <span class="chip"><i><!-- 128×128 px, PNG/SVG fondo transparente · icons/sql.svg --><img src="icons/sql.svg" alt="Icono de SQL"></i>SQL</span>
       </div></div>
       <div><h3>Herramientas y sistemas</h3><div class="chips">
-        <span class="chip"><i><!-- 128×128 px, PNG/SVG fondo transparente · icons/vscode.svg --><img src="" alt="Icono de Visual Studio Code"></i>Visual Studio Code</span>
-        <span class="chip"><i><!-- 128×128 px, PNG/SVG fondo transparente · icons/git.svg --><img src="" alt="Icono de Git"></i>Git</span>
-        <span class="chip"><i><!-- 128×128 px, PNG/SVG fondo transparente · icons/github.svg --><img src="" alt="Icono de GitHub"></i>GitHub</span>
-        <span class="chip"><i><!-- 128×128 px, PNG/SVG fondo transparente · icons/linux.svg --><img src="" alt="Icono de Linux"></i>Linux</span>
-        <span class="chip"><i><!-- 128×128 px, PNG/SVG fondo transparente · icons/windows.svg --><img src="" alt="Icono de Windows"></i>Windows</span>
-        <span class="chip"><i><!-- 128×128 px, PNG/SVG fondo transparente · icons/kicad.svg --><img src="" alt="Icono de KiCad"></i>KiCad</span>
-        <span class="chip"><i><!-- 128×128 px, PNG/SVG fondo transparente · icons/proteus.svg --><img src="" alt="Icono de Proteus"></i>Proteus</span>
+        <span class="chip"><i><!-- 128×128 px, PNG/SVG fondo transparente · icons/vscode.svg --><img src="icons/VSC.svg" alt="Icono de Visual Studio Code"></i>Visual Studio Code</span>
+        <span class="chip"><i><!-- 128×128 px, PNG/SVG fondo transparente · icons/git.svg --><img src="icons/Git.webp" alt="Icono de Git"></i>Git</span>
+        <span class="chip"><i><!-- 128×128 px, PNG/SVG fondo transparente · icons/github.svg --><img src="icons/github.webp" alt="Icono de GitHub"></i>GitHub</span>
+        <span class="chip"><i><!-- 128×128 px, PNG/SVG fondo transparente · icons/linux.svg --><img src="icons/linux.webp" alt="Icono de Linux"></i>Linux</span>
+        <span class="chip"><i><!-- 128×128 px, PNG/SVG fondo transparente · icons/windows.svg --><img src="icons/Windows.webp" alt="Icono de Windows"></i>Windows</span>
+        <span class="chip"><i><!-- 128×128 px, PNG/SVG fondo transparente · icons/kicad.svg --><img src="icons/KiCad.webp" alt="Icono de KiCad"></i>KiCad</span>
+        <span class="chip"><i><!-- 128×128 px, PNG/SVG fondo transparente · icons/proteus.svg --><img src="icons/proteus.webp" alt="Icono de Proteus"></i>Proteus</span>
       </div></div>
       <div><h3>Frameworks y datos</h3><div class="chips">
         <span class="chip"><i><!-- 128×128 px, PNG/SVG fondo transparente · icons/nodejs.svg --><img src="" alt="Icono de Node.js"></i>Node.js</span>
@@ -335,18 +332,18 @@ nav{display:flex;flex-wrap:wrap;gap:4px 0}
     <li>Fundamentos de Python 1 (30 h)</li>
   </ul>
   <div class="certs"><!-- 1200×675 px, horizontal 16:9 · ejemplo: img/cisco-ccna.jpg -->
-      <div class="ph"><img src="" alt="Certificado CCNA"><span class="lbl"><svg><use href="#cam"/></svg>Certificado CCNA<small>1200×675 px</small></span></div><!-- 1200×675 px, horizontal 16:9 · ejemplo: img/cisco-js2.jpg -->
-      <div class="ph"><img src="" alt="Certificado JavaScript Essentials 2"><span class="lbl"><svg><use href="#cam"/></svg>Certificado JavaScript Essentials 2<small>1200×675 px</small></span></div><!-- 1200×675 px, horizontal 16:9 · ejemplo: img/cisco-js1.jpg -->
-      <div class="ph"><img src="" alt="Certificado JavaScript Essentials 1"><span class="lbl"><svg><use href="#cam"/></svg>Certificado JavaScript Essentials 1<small>1200×675 px</small></span></div><!-- 1200×675 px, horizontal 16:9 · ejemplo: img/cisco-css.jpg -->
-      <div class="ph"><img src="" alt="Certificado CSS Essentials"><span class="lbl"><svg><use href="#cam"/></svg>Certificado CSS Essentials<small>1200×675 px</small></span></div><!-- 1200×675 px, horizontal 16:9 · ejemplo: img/cisco-python1.jpg -->
-      <div class="ph"><img src="" alt="Certificado Python 1"><span class="lbl"><svg><use href="#cam"/></svg>Certificado Python 1<small>1200×675 px</small></span></div></div>
+      <div class="ph"><img src="img/Certificados/CCNA.png" alt="Certificado CCNA"><span class="lbl"><svg><use href="#cam"/></svg>Certificado CCNA<small>1200×675 px</small></span></div><!-- 1200×675 px, horizontal 16:9 · ejemplo: img/cisco-js2.jpg -->
+      <div class="ph"><img src="img/Certificados/JSE2.png" alt="Certificado JavaScript Essentials 2"><span class="lbl"><svg><use href="#cam"/></svg>Certificado JavaScript Essentials 2<small>1200×675 px</small></span></div><!-- 1200×675 px, horizontal 16:9 · ejemplo: img/cisco-js1.jpg -->
+      <div class="ph"><img src="img/Certificados/JSE1.png" alt="Certificado JavaScript Essentials 1"><span class="lbl"><svg><use href="#cam"/></svg>Certificado JavaScript Essentials 1<small>1200×675 px</small></span></div><!-- 1200×675 px, horizontal 16:9 · ejemplo: img/cisco-css.jpg -->
+      <div class="ph"><img src="img/Certificados/CSS.png" alt="Certificado CSS Essentials"><span class="lbl"><svg><use href="#cam"/></svg>Certificado CSS Essentials<small>1200×675 px</small></span></div><!-- 1200×675 px, horizontal 16:9 · ejemplo: img/cisco-python1.jpg -->
+      <div class="ph"><img src="img/Certificados/python.png" alt="Certificado Python 1"><span class="lbl"><svg><use href="#cam"/></svg>Certificado Python 1<small>1200×675 px</small></span></div></div>
   <form method="dialog" class="acts"><button class="btn main">Cerrar</button></form>
 </dialog>
 <dialog id="d-unam" aria-labelledby="t-unam">
   <h3 id="t-unam">Quinta Escuela de Cómputo Cuántico</h3>
   <p class="meta">UNAM, Facultad de Ingeniería · 28 horas · agosto de 2026</p>
   <div class="certs"><!-- 1200×675 px, horizontal 16:9 · ejemplo: img/unam-constancia.jpg -->
-      <div class="ph"><img src="" alt="Constancia de participación"><span class="lbl"><svg><use href="#cam"/></svg>Constancia de participación<small>1200×675 px</small></span></div></div>
+      <div class="ph"><img src="img/Certificados/ComputoCuantico.png" alt="Constancia de participación"><span class="lbl"><svg><use href="#cam"/></svg>Constancia de participación<small>1200×675 px</small></span></div></div>
   <form method="dialog" class="acts"><button class="btn main">Cerrar</button></form>
 </dialog>
 <dialog id="d-sing" aria-labelledby="t-sing">
@@ -355,9 +352,9 @@ nav{display:flex;flex-wrap:wrap;gap:4px 0}
   <p>Colaboro en el proyecto León Bio-Lab: el prototipo inicial de una estación meteorológica de código abierto, con selección de componentes, ensamblaje y soldadura.</p>
   <p>Participo en los talleres del programa de becas para colectivos juveniles del IMJU León, con el que el colectivo obtuvo un apoyo de $15,000 MXN. También colaboro en investigación y en la preparación de artículos científicos, y representé al colectivo en JSConf México 2026, Guadalajara.</p>
   <div class="certs"><!-- 1200×675 px, horizontal 16:9 · ejemplo: img/singularity-1.jpg -->
-      <div class="ph"><img src="" alt="Foto del colectivo"><span class="lbl"><svg><use href="#cam"/></svg>Foto del colectivo<small>1200×675 px</small></span></div><!-- 1200×675 px, horizontal 16:9 · ejemplo: img/singularity-jsconf.jpg -->
-      <div class="ph"><img src="" alt="Foto en JSConf México 2026"><span class="lbl"><svg><use href="#cam"/></svg>Foto en JSConf México 2026<small>1200×675 px</small></span></div></div>
-  <div class="acts"><span class="pending">Enlace al colectivo: pendiente</span></div>
+      <div class="ph"><img src="img/singularity/Colectivo.png" alt="Foto del colectivo"><span class="lbl"><svg><use href="#cam"/></svg>Foto del colectivo<small>1200×675 px</small></span></div><!-- 1200×675 px, horizontal 16:9 · ejemplo: img/singularity-jsconf.jpg -->
+      <div class="ph"><img src="img/singularity/Evento.png" alt="Foto en JSConf México 2026"><span class="lbl"><svg><use href="#cam"/></svg>Foto en JSConf México 2026<small>1200×675 px</small></span></div></div>
+  <div class="links"><a href="https://www.instagram.com/singularity.open/" target="_blank" rel="noopener">Instagram</a></div>
   <div style="height:14px"></div>
   <form method="dialog" class="acts"><button class="btn main">Cerrar</button></form>
 </dialog>
